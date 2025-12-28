@@ -84,9 +84,9 @@ console.log(i)
       explanation:
         "JavaScript statements should end with semicolons. While not always required, it's good practice to include them.",
     },
-  ], 
+  ],
 
-    medium: [
+  medium: [
     {
       question: "Why does this code log 5 five times?",
       category: "JavaScript",
@@ -183,4 +183,101 @@ return response.json();
         "fetch() returns a Promise, so you need to await it or use .then(). Without await, response.json() will fail.",
     },
   ],
-  
+
+  hard: [
+    {
+      question: "Memory leak in this event listener:",
+      category: "JavaScript",
+      code: `element.addEventListener('click', () => {
+console.log('Clicked');
+});
+
+// Later...
+element.remove();`,
+      options: [
+        "Event listener keeps element in memory",
+        "Need to remove event listener first",
+        "Use weak references",
+        "All of the above",
+      ],
+      correctAnswer: 1,
+      explanation:
+        "Event listeners create references that prevent garbage collection. Always remove listeners before removing elements from DOM.",
+    },
+    {
+      question: "Race condition in this code:",
+      category: "JavaScript",
+      code: `let count = 0;
+
+async function increment() {
+const current = count;
+await someAsyncTask();
+count = current + 1;
+}`,
+      options: [
+        "Race condition between reads and writes",
+        "Should use atomic operations",
+        "Need mutex or lock",
+        "All of the above",
+      ],
+      correctAnswer: 3,
+      explanation:
+        "Multiple calls can read same count value before any writes complete. Need proper concurrency control for shared state.",
+    },
+    {
+      question: "CSS performance issue:",
+      category: "CSS",
+      code: `.animated {
+left: 0;
+transition: left 1s;
+}
+
+.animated:hover {
+left: 500px;
+}`,
+      options: [
+        "Animating left causes layout recalculations",
+        "Use transform: translateX() instead",
+        "Both 1 and 2",
+        "Nothing is wrong",
+      ],
+      correctAnswer: 2,
+      explanation:
+        "Animating left/top triggers expensive layout recalculations. Use transform for better performance as it uses the GPU.",
+    },
+    {
+      question: "TypeScript type safety issue:",
+      category: "TypeScript",
+      code: `function merge(a: any, b: any) {
+return { ...a, ...b };
+}`,
+      options: [
+        "any type loses type safety",
+        "Should use generics",
+        "Return type should be intersection",
+        "All of the above",
+      ],
+      correctAnswer: 3,
+      explanation:
+        "Using any defeats TypeScript's type checking. Use generics <T, U> and return type T & U for type safety.",
+    },
+    {
+      question: "Closure scope issue:",
+      category: "JavaScript",
+      code: `for (var i = 0; i < 3; i++) {
+setTimeout(function() {
+console.log(i);
+}, i * 1000);
+}`,
+      options: [
+        "All closures share same i variable",
+        "Will log 3, 3, 3 instead of 0, 1, 2",
+        "Use let or IIFE to fix",
+        "All of the above",
+      ],
+      correctAnswer: 3,
+      explanation:
+        "var has function scope, so all closures reference the same i. Use let (block scope) or IIFE to capture each value.",
+    },
+  ],
+};
