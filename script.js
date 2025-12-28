@@ -281,3 +281,23 @@ console.log(i);
     },
   ],
 };
+
+// App state
+const state = {
+  currentScreen: "welcome",
+  difficulty: "easy",
+  currentQuestion: 0,
+  score: 0,
+  selectedOption: null,
+  timeLeft: 60,
+  timer: null,
+  startTime: null,
+  answers: [],
+};
+
+// DOM elements
+const screens = {
+  welcome: document.getElementById("welcome-screen"),
+  quiz: document.getElementById("quiz-screen"),
+  results: document.getElementById("results-screen"),
+};
