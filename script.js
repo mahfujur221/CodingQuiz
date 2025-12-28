@@ -85,4 +85,102 @@ console.log(i)
         "JavaScript statements should end with semicolons. While not always required, it's good practice to include them.",
     },
   ], 
+
+    medium: [
+    {
+      question: "Why does this code log 5 five times?",
+      category: "JavaScript",
+      code: `for (var i = 0; i < 5; i++) {
+setTimeout(() => {
+console.log(i);
+}, 100);
+}`,
+      options: [
+        "var has function scope, not block scope",
+        "setTimeout is asynchronous",
+        "Need to use let instead of var",
+        "All of the above",
+      ],
+      correctAnswer: 3,
+      explanation:
+        "var has function scope, so all timeouts share the same i variable (which becomes 5). Use let to create block scope and capture each i value.",
+    },
+    {
+      question: "Debug this array filter function:",
+      category: "JavaScript",
+      code: `const numbers = [1, 2, 3, 4, 5];
+const even = numbers.filter(num => {
+return num % 2 = 0;
+});`,
+      options: [
+        "Should use == instead of =",
+        "Should use === instead of =",
+        "Missing parentheses around condition",
+        "Arrow function syntax is wrong",
+      ],
+      correctAnswer: 1,
+      explanation:
+        "= is assignment operator, not comparison. Use === for equality check, or == for loose equality (but === is preferred).",
+    },
+    {
+      question: "What's wrong with this CSS grid?",
+      category: "CSS",
+      code: `.grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}`,
+      options: [
+        "The CSS is actually correct",
+        "Missing grid-template-rows",
+        "Should use flexbox instead",
+        "Need to define grid areas",
+      ],
+      correctAnswer: 0,
+      explanation:
+        "This CSS grid code is perfectly valid! It creates a 2-column grid with equal fractional units and 10px gap between items.",
+    },
+    {
+      question: "Why won't this React component update?",
+      category: "React",
+      code: `function Counter() {
+let count = 0;
+
+return (
+<div>
+    <p>{count}</p>
+    <button onClick={() => count++}>
+        Increment
+    </button>
+</div>
+);
+}`,
+      options: [
+        "React needs useState hook for state",
+        "Direct variable mutation doesn't trigger re-render",
+        "Both 1 and 2",
+        "The onClick syntax is wrong",
+      ],
+      correctAnswer: 2,
+      explanation:
+        "In React, you need to use the useState hook to create reactive state. Direct variable mutation doesn't trigger component updates.",
+    },
+    {
+      question: "Fix this async function:",
+      category: "JavaScript",
+      code: `async function getData() {
+const response = fetch('/api/data');
+return response.json();
+}`,
+      options: [
+        "Missing await before fetch()",
+        "Missing try-catch block",
+        "Should use .then() instead of async/await",
+        "Nothing is wrong",
+      ],
+      correctAnswer: 0,
+      explanation:
+        "fetch() returns a Promise, so you need to await it or use .then(). Without await, response.json() will fail.",
+    },
+  ],
   
