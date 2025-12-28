@@ -22,5 +22,29 @@
                     <div class="stat-label">Seconds</div>
                 </div>
             </div>
+
+             <div class="content">
+                <!-- Welcome Screen -->
+                <div class="screen welcome-screen active" id="welcome-screen">
+                    <h2>Welcome to CodeFix!</h2>
+                    <p>You'll be shown buggy code snippets. Your task is to identify the correct fix. You have 60 seconds to complete 5 questions. Good luck!</p>
+                    
+                    <div class="difficulty-select">
+                        <h3>Choose Difficulty:</h3>
+                        <button class="difficulty-btn" data-difficulty="easy">
+                            <i class="fas fa-star"></i> Easy - Simple syntax errors
+                        </button>
+                        <button class="difficulty-btn" data-difficulty="medium">
+                            <i class="fas fa-star"></i> <i class="fas fa-star"></i> Medium - Logic errors
+                        </button>
+                        <button class="difficulty-btn" data-difficulty="hard">
+                            <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> Hard - Complex bugs
+                        </button>
+                    </div>
+                    
+                    <button class="btn" id="start-btn">
+                        <i class="fas fa-play"></i> Start Quiz
+                    </button>
+                </div>
 </body>
 </html>
