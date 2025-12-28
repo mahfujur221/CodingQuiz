@@ -1,141 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Quiz App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-        <div class="container">
-        <div class="card">
-
-            <div class="header">
-                <h1><i class="fas fa-bug"></i> Coding Quiz App</h1>
-                <p>Debug the code and find the bugs!</p>
-            </div>
-
-                <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-value" id="score-value">0</div>
-                    <div class="stat-label">Score</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="question-count">0/5</div>
-                    <div class="stat-label">Question</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="timer-value">60</div>
-                    <div class="stat-label">Seconds</div>
-                </div>
-            </div>
-
-             <div class="content">
-                <!-- Welcome Screen -->
-                <div class="screen welcome-screen active" id="welcome-screen">
-                    <h2>Welcome to CodeFix!</h2>
-                    <p>You'll be shown buggy code snippets. Your task is to identify the correct fix. You have 60 seconds to complete 5 questions. Good luck!</p>
-                    
-                    <div class="difficulty-select">
-                        <h3>Choose Difficulty:</h3>
-                        <button class="difficulty-btn" data-difficulty="easy">
-                            <i class="fas fa-star"></i> Easy - Simple syntax errors
-                        </button>
-                        <button class="difficulty-btn" data-difficulty="medium">
-                            <i class="fas fa-star"></i> <i class="fas fa-star"></i> Medium - Logic errors
-                        </button>
-                        <button class="difficulty-btn" data-difficulty="hard">
-                            <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> Hard - Complex bugs
-                        </button>
-                    </div>
-                    
-                    <button class="btn" id="start-btn">
-                        <i class="fas fa-play"></i> Start Quiz
-                    </button>
-                </div>
-
-                                <!-- Quiz Screen -->
-                <div class="screen quiz-screen" id="quiz-screen">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
-                    </div>
-                    
-                    <div class="question-container">
-                        <div class="question-header">
-                            <div class="question-number" id="question-number">Q1/5</div>
-                            <div class="question-category" id="question-category">JavaScript</div>
-                        </div>
-                        
-                        <div class="question-text" id="question-text">Find the bug in this code:</div>
-                        
-                        <div class="code-box" id="code-box">
-                            // Code will appear here
-                        </div>
-                        
-                        <div class="options-container" id="options-container">
-                            <!-- Options will be added by JavaScript -->
-                        </div>
-                        
-                        <div class="explanation" id="explanation">
-                            <h4><i class="fas fa-lightbulb"></i> Explanation</h4>
-                            <p id="explanation-text"></p>
-                        </div>
-                    </div>
-                    
-                    <div class="action-buttons">
-                        <button class="btn btn-secondary" id="hint-btn">
-                            <i class="fas fa-lightbulb"></i> Hint
-                        </button>
-                        <button class="btn" id="next-btn" disabled>
-                            Next Question <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Results Screen -->
-                <div class="screen results-screen" id="results-screen">
-                    <div class="results-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    
-                    <div class="results-score" id="final-score">0%</div>
-                    <div class="results-text" id="results-text">Quiz Complete!</div>
-                    
-                    <div class="results-details">
-                        <div class="result-item">
-                            <div class="result-value" id="correct-answers">0</div>
-                            <div class="result-label">Correct Answers</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-value" id="time-taken">0s</div>
-                            <div class="result-label">Time Taken</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-value" id="accuracy">0%</div>
-                            <div class="result-label">Accuracy</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-value" id="difficulty">Easy</div>
-                            <div class="result-label">Difficulty</div>
-                        </div>
-                    </div>
-                    
-                    <div class="action-buttons">
-                        <button class="btn btn-secondary" id="restart-btn">
-                            <i class="fas fa-redo"></i> Try Again
-                        </button>
-                        <button class="btn" id="home-btn">
-                            <i class="fas fa-home"></i> Back to Home
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="header">
+          <h1><i class="fas fa-bug"></i> Coding Quiz App</h1>
+          <p>Debug the code and find the bugs!</p>
         </div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value" id="score-value">0</div>
+            <div class="stat-label">Score</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="question-count">0/5</div>
+            <div class="stat-label">Question</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="timer-value">60</div>
+            <div class="stat-label">Seconds</div>
+          </div>
+        </div>
+
+        <div class="content">
+          <!-- Welcome Screen -->
+          <div class="screen welcome-screen active" id="welcome-screen">
+            <h2>Welcome to CodeFix!</h2>
+            <p>
+              You'll be shown buggy code snippets. Your task is to identify the
+              correct fix. You have 60 seconds to complete 5 questions. Good
+              luck!
+            </p>
+
+            <div class="difficulty-select">
+              <h3>Choose Difficulty:</h3>
+              <button class="difficulty-btn" data-difficulty="easy">
+                <i class="fas fa-star"></i> Easy - Simple syntax errors
+              </button>
+              <button class="difficulty-btn" data-difficulty="medium">
+                <i class="fas fa-star"></i> <i class="fas fa-star"></i> Medium -
+                Logic errors
+              </button>
+              <button class="difficulty-btn" data-difficulty="hard">
+                <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i> Hard - Complex bugs
+              </button>
+            </div>
+
+            <button class="btn" id="start-btn">
+              <i class="fas fa-play"></i> Start Quiz
+            </button>
+          </div>
+
+          <!-- Quiz Screen -->
+          <div class="screen quiz-screen" id="quiz-screen">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="question-container">
+              <div class="question-header">
+                <div class="question-number" id="question-number">Q1/5</div>
+                <div class="question-category" id="question-category">
+                  JavaScript
+                </div>
+              </div>
+
+              <div class="question-text" id="question-text">
+                Find the bug in this code:
+              </div>
+
+              <div class="code-box" id="code-box">// Code will appear here</div>
+
+              <div class="options-container" id="options-container">
+                <!-- Options will be added by JavaScript -->
+              </div>
+
+              <div class="explanation" id="explanation">
+                <h4><i class="fas fa-lightbulb"></i> Explanation</h4>
+                <p id="explanation-text"></p>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn btn-secondary" id="hint-btn">
+                <i class="fas fa-lightbulb"></i> Hint
+              </button>
+              <button class="btn" id="next-btn" disabled>
+                Next Question <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Results Screen -->
+          <div class="screen results-screen" id="results-screen">
+            <div class="results-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+
+            <div class="results-score" id="final-score">0%</div>
+            <div class="results-text" id="results-text">Quiz Complete!</div>
+
+            <div class="results-details">
+              <div class="result-item">
+                <div class="result-value" id="correct-answers">0</div>
+                <div class="result-label">Correct Answers</div>
+              </div>
+              <div class="result-item">
+                <div class="result-value" id="time-taken">0s</div>
+                <div class="result-label">Time Taken</div>
+              </div>
+              <div class="result-item">
+                <div class="result-value" id="accuracy">0%</div>
+                <div class="result-label">Accuracy</div>
+              </div>
+              <div class="result-item">
+                <div class="result-value" id="difficulty">Easy</div>
+                <div class="result-label">Difficulty</div>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn btn-secondary" id="restart-btn">
+                <i class="fas fa-redo"></i> Try Again
+              </button>
+              <button class="btn" id="home-btn">
+                <i class="fas fa-home"></i> Back to Home
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="./script.js"></script>
-
-
-</body>
+  </body>
 </html>
