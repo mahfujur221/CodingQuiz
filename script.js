@@ -388,3 +388,30 @@ function startTimer() {
     }
   }, 1000);
 }
+
+// Load question
+function loadQuestion() {
+  const questions = quizData[state.difficulty];
+  const question = questions[state.currentQuestion];
+
+  // Update UI
+  elements.questionNumber.textContent = `Q${state.currentQuestion + 1}/5`;
+  elements.questionCategory.textContent = question.category;
+  elements.questionText.textContent = question.question;
+  elements.codeBox.textContent = question.code;
+
+  // Clear options
+  elements.optionsContainer.innerHTML = "";
+
+  // Add options
+  question.options.forEach((option, index) => {
+    const optionEl = document.createElement("div");
+    optionEl.className = "option";
+    optionEl.innerHTML = `
+            <div class="option-prefix">${String.fromCharCode(65 + index)}</div>
+            <div class="option-text">${option}</div>
+        `;
+
+    optionEl.addEventListener("click", () => selectOption(index, optionEl));
+    elements.optionsContainer.appendChild(optionEl);
+  });
