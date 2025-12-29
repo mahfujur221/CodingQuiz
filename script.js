@@ -514,3 +514,57 @@ function showHint() {
 
   alert(`Hint: ${hint}`);
 }
+
+// End quiz
+function endQuiz() {
+  clearInterval(state.timer);
+
+  const endTime = new Date();
+  const timeTaken = Math.floor((endTime - state.startTime) / 1000);
+  const questions = quizData[state.difficulty];
+  const correctCount = state.answers.filter((a) => a.isCorrect).length;
+  const accuracy = Math.round((correctCount / questions.length) * 100);
+  const scorePercent = Math.round((state.score / 100) * 100);
+
+  // Update results
+  elements.finalScore.textContent = `${scorePercent}%`;
+  elements.correctAnswers.textContent = `${correctCount}/${questions.length}`;
+  elements.timeTaken.textContent = `${timeTaken}s`;
+  elements.accuracy.textContent = `${accuracy}%`;
+  elements.difficulty.textContent =
+    state.difficulty.charAt(0).toUpperCase() + state.difficulty.slice(1);
+
+  // Set result message
+  if (scorePercent >= 80) {
+    elements.resultsText.textContent = "Excellent! You're a debugging pro!";
+  } else if (scorePercent >= 60) {
+    elements.resultsText.textContent = "Good job! You found most bugs!";
+  } else if (scorePercent >= 40) {
+    elements.resultsText.textContent = "Not bad! Keep practicing!";
+  } else {
+    elements.resultsText.textContent =
+      "Keep learning! Debugging takes practice!";
+  }
+
+  switchScreen("results");
+}
+
+// Restart quiz
+function restartQuiz() {
+  startQuiz();
+}
+
+// Go home
+function goHome() {
+  switchScreen("welcome");
+}
+
+// Update UI
+function updateUI() {
+  elements.scoreValue.textContent = state.score;
+  elements.questionCount.textContent = `${state.currentQuestion + 1}/5`;
+  elements.timerValue.textContent = state.timeLeft;
+}
+
+// Initialize app when page loads
+document.addEventListener("DOMContentLoaded", init);
