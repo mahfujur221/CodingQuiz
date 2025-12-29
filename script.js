@@ -338,3 +338,17 @@ function init() {
       state.difficulty = this.dataset.difficulty;
     });
   });
+
+  
+  // Set default difficulty
+  document
+    .querySelector('.difficulty-btn[data-difficulty="easy"]')
+    .classList.add("selected");
+
+  // Button events
+  elements.startBtn.addEventListener("click", startQuiz);
+  elements.nextBtn.addEventListener("click", nextQuestion);
+  elements.hintBtn.addEventListener("click", showHint);
+  elements.restartBtn.addEventListener("click", restartQuiz);
+  elements.homeBtn.addEventListener("click", goHome);
+}
