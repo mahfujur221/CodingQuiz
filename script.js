@@ -325,3 +325,16 @@ const elements = {
   accuracy: document.getElementById("accuracy"),
   difficulty: document.getElementById("difficulty"),
 };
+
+// Initialize app
+function init() {
+  // Difficulty selection
+  document.querySelectorAll(".difficulty-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".difficulty-btn").forEach((b) => {
+        b.classList.remove("selected");
+      });
+      this.classList.add("selected");
+      state.difficulty = this.dataset.difficulty;
+    });
+  });
