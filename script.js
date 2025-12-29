@@ -373,3 +373,18 @@ function switchScreen(screen) {
   screens[screen].classList.add("active");
   state.currentScreen = screen;
 }
+
+// Start timer
+function startTimer() {
+  if (state.timer) clearInterval(state.timer);
+
+  state.timer = setInterval(() => {
+    state.timeLeft--;
+    elements.timerValue.textContent = state.timeLeft;
+
+    if (state.timeLeft <= 0) {
+      clearInterval(state.timer);
+      endQuiz();
+    }
+  }, 1000);
+}
