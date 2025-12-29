@@ -472,3 +472,45 @@ function selectOption(index, element) {
   // Update score
   updateUI();
 }
+
+// Next question
+function nextQuestion() {
+  const questions = quizData[state.difficulty];
+
+  if (state.currentQuestion < questions.length - 1) {
+    state.currentQuestion++;
+    loadQuestion();
+  } else {
+    endQuiz();
+  }
+}
+
+// Show hint
+function showHint() {
+  const questions = quizData[state.difficulty];
+  const question = questions[state.currentQuestion];
+
+  // Simple hint based on category
+  let hint = "";
+  switch (question.category) {
+    case "HTML":
+      hint = "Check for missing closing tags or incorrect attributes.";
+      break;
+    case "CSS":
+      hint = "Look for syntax errors or incorrect property values.";
+      break;
+    case "JavaScript":
+      hint = "Check for syntax errors, scope issues, or logic errors.";
+      break;
+    case "React":
+      hint = "Remember React hooks and state management rules.";
+      break;
+    case "TypeScript":
+      hint = "Check type annotations and generics.";
+      break;
+    default:
+      hint = "Read the code carefully and look for common mistakes.";
+  }
+
+  alert(`Hint: ${hint}`);
+}
