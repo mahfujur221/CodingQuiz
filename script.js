@@ -415,3 +415,60 @@ function loadQuestion() {
     optionEl.addEventListener("click", () => selectOption(index, optionEl));
     elements.optionsContainer.appendChild(optionEl);
   });
+
+  // Hide explanation
+  elements.explanation.classList.remove("active");
+
+  // Update progress
+  const progress = (state.currentQuestion / questions.length) * 100;
+  elements.progressFill.style.width = `${progress}%`;
+
+  // Reset button
+  elements.nextBtn.disabled = true;
+  state.selectedOption = null;
+
+  // Update question counter
+  updateUI();
+}
+
+// Select option
+function selectOption(index, element) {
+  if (state.selectedOption !== null) return;
+
+  const questions = quizData[state.difficulty];
+  const question = questions[state.currentQuestion];
+  const isCorrect = index === question.correctAnswer;
+
+  // Mark selected option
+  state.selectedOption = index;
+  element.classList.add("selected");
+
+  // Mark correct/incorrect
+  if (isCorrect) {
+    element.classList.add("correct");
+    state.score += 20;
+  } else {
+    element.classList.add("incorrect");
+    // Highlight correct answer
+    document
+      .querySelectorAll(".option")
+      [question.correctAnswer].classList.add("correct");
+  }
+
+  // Store answer
+  state.answers.push({
+    question: state.currentQuestion,
+    selected: index,
+    correct: question.correctAnswer,
+    isCorrect: isCorrect,
+  });
+    // Show explanation
+  elements.explanationText.textContent = question.explanation;
+  elements.explanation.classList.add("active");
+
+  // Enable next button
+  elements.nextBtn.disabled = false;
+
+  // Update score
+  updateUI();
+}
