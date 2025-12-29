@@ -352,3 +352,24 @@ function init() {
   elements.restartBtn.addEventListener("click", restartQuiz);
   elements.homeBtn.addEventListener("click", goHome);
 }
+
+// Start quiz
+function startQuiz() {
+  state.currentQuestion = 0;
+  state.score = 0;
+  state.timeLeft = 60;
+  state.answers = [];
+  state.startTime = new Date();
+
+  updateUI();
+  switchScreen("quiz");
+  startTimer();
+  loadQuestion();
+}
+
+// Switch screens
+function switchScreen(screen) {
+  Object.values(screens).forEach((s) => s.classList.remove("active"));
+  screens[screen].classList.add("active");
+  state.currentScreen = screen;
+}
