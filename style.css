@@ -55,3 +55,21 @@ body {
     opacity: 0.9;
     font-size: 16px;
 }
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: var(--light);
+    border-bottom: 1px solid #e9ecef;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+}
