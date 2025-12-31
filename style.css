@@ -121,3 +121,13 @@ body {
     cursor: pointer;
     transition: all 0.3s;
 }
+
+.difficulty-btn:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.difficulty-btn.selected {
+    border-color: var(--primary);
+    background: rgba(67, 97, 238, 0.1);
+}
