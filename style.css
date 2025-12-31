@@ -104,3 +104,20 @@ body {
     margin-bottom: 15px;
     color: var(--dark);
 }
+
+.difficulty-select {
+    margin: 25px 0;
+}
+
+.difficulty-btn {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background: var(--light);
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
