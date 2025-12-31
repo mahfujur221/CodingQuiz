@@ -73,3 +73,17 @@ body {
     font-weight: bold;
     color: var(--primary);
 }
+
+.stat-label {
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.content {
+    padding: 30px;
+}
+
+.screen {
+    display: none;
+}
