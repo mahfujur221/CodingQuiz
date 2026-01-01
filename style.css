@@ -228,3 +228,18 @@ body {
 .option:hover {
     background: #e9ecef;
 }
+
+.option.selected {
+    border-color: var(--primary);
+    background: rgba(67, 97, 238, 0.1);
+}
+
+.option.correct {
+    border-color: var(--success);
+    background: rgba(76, 201, 240, 0.1);
+}
+
+.option.incorrect {
+    border-color: var(--danger);
+    background: rgba(249, 65, 68, 0.1);
+}
