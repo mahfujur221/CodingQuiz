@@ -243,3 +243,25 @@ body {
     border-color: var(--danger);
     background: rgba(249, 65, 68, 0.1);
 }
+
+
+.option-prefix {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.option.selected .option-prefix {
+    background: var(--primary);
+    color: white;
+}
+
+.option-text {
+    flex: 1;
+}
