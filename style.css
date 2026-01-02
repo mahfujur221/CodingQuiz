@@ -318,3 +318,28 @@ body {
     margin-bottom: 30px;
     color: var(--dark);
 }
+
+.results-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.result-item {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.result-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.result-label {
+    font-size: 14px;
+    color: #6c757d;
+}
