@@ -299,3 +299,22 @@ body {
 .results-screen {
     text-align: center;
 }
+
+.results-icon {
+    font-size: 70px;
+    color: var(--success);
+    margin-bottom: 20px;
+}
+
+.results-score {
+    font-size: 60px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.results-text {
+    font-size: 22px;
+    margin-bottom: 30px;
+    color: var(--dark);
+}
