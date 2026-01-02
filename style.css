@@ -280,3 +280,22 @@ body {
 .btn-secondary:hover {
     background: #e9ecef;
 }
+
+.progress-bar {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    width: 0%;
+    transition: width 0.5s;
+}
+
+.results-screen {
+    text-align: center;
+}
